@@ -1,0 +1,239 @@
+/* VARIABLES CSS */
+:root {
+  /* COLORES */
+  /* Modo de colores HSL(hue, saturation, lightness) */
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /* Tipografía y fuentes */
+  /* .5rem = 8px / 1rem = 16px */
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
+
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-image: url(img/background.png);
+  color: rgb(240, 240, 240);
+  /* background-color: #1D1842; */
+  /* color: var(--text-color); */
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--body-font);
+  width: 100vw;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  width: 95%;
+  max-width: 788px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px;
+  margin-top: 15px;
+}
+
+.container {
+  width: 91%;
+  max-width: 680px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.image-container {
+  height: 96px;
+  width: 96px;
+  border-radius: 48px;
+  overflow: hidden;
+}
+
+.image-container img {
+  height: 100%;
+}
+
+.icon img {
+  margin: 4px 8px;
+  width: 54px;
+  height: 54px;
+}
+
+.container-titulo {
+  width: 100%;
+  height: 7vh;
+  background-color: rgb(37, 37, 37);
+  margin: 7px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.container-titulo .titulo-curso {
+  align-self: center;
+}
+
+/* CONTAINER DE CURSOS */
+
+.container-2 {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 3rem;
+}
+
+.cards-container{
+  display: grid;
+  row-gap: 3.5rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.card-article{
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img{
+  height: 100%;
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card-data {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card-description{
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+  color: var(--title-color);
+}
+
+.card-title{
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75 rem;
+}
+
+/* Animaciones en el nombre de las cartas */
+/* Es CSS puro, no debería haber problemas en intranet */
+
+.card-article:hover .card-data{
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card-article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card-article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card-article:not(:hover) .card-data{
+  animation: remove-data 1s forwards;
+}
+
+/* Animaciones de las Cartas */
+@keyframes show-data{
+  50%{
+    transform: translateY(-10rem);
+  }
+  100%{
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow{
+  to{
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data{
+  0%{
+    transform: translateY(-7rem);
+  }
+  50%{
+    transform: translateY(-10rem);
+  }
+  100%{
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow{
+  0%{
+    overflow: initial;
+    pointer-events: none;
+  }
+  50%{
+    overflow: hidden;
+  }
+}
+
+/* BREAKPOINTS */
+
+/* para dispositivos pequeños */
+@media screen and (max-width: 340px) {
+  .container-2{
+    margin-inline: 1rem;
+  }
+
+  .card-data{
+    width: 250px;
+    padding: 1rem;
+  }
+}
+/* para dispositivos medianos */
+@media screen and (min-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* para dispositivos grandes */
+@media screen and (min-width: 1120px) {
+  /* .container-2{
+     height: 100vh;
+  } */
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card-img{
+    width: 348px;
+  }
+  .card-data{
+    width: 280px;
+    padding-inline: 2.5rem;
+  }
+}
