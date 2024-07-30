@@ -7,12 +7,19 @@
   --text-color: hsl(0, 0%, 35%);
   --body-color: hsl(0, 0%, 95%);
   --container-color: hsl(0, 0%, 100%);
+  --esp-im-color: hsl(0, 78%, 49%);
+  --esp-gl-color: hsl(232, 61%, 55%);
+  --esp-elec-color: hsl(60, 75%, 45%);
+  --esp-aba-color: hsl(143, 65%, 48%);
+  --obd-color: hsl(200, 66%, 57%);
+  --obm-color: hsl(38, 76%, 62%);
+  --transversal-color: hsl(163, 73%, 49%);
 
   /* Tipografía y fuentes */
   /* .5rem = 8px / 1rem = 16px */
   --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
-  --small-font-size: .813rem;
+  --small-font-size: .9rem;
 }
 
 
@@ -32,15 +39,38 @@ body {
   font-style: normal;
 }
 
+footer {
+  height: 20vh;
+}
+
+/* HEADER Y BOTÓN */
 header {
   width: 95%;
   max-width: 788px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 12px;
   margin-top: 15px;
 }
 
+.share-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: rgb(240, 240, 240);
+}
+
+.share-button img {
+  margin-left: 8px;
+  margin-top: 10px;
+}
+
+.share-button:hover {
+  transition: cubic-bezier(0.07, 1.41, 0.82, 1.41) 0.4s;
+  transform: scale(1.42);
+}
+
+/* CONTENDOR  */
 .container {
   width: 91%;
   max-width: 680px;
@@ -62,9 +92,9 @@ h1 {
   overflow: hidden;
 }
 
-.image-container img {
+/* .image-container img {
   height: 100%;
-}
+} */
 
 .icon img {
   margin: 4px 8px;
@@ -73,19 +103,25 @@ h1 {
 }
 
 .container-titulo {
-  width: 100%;
+  width: 80%;
   height: 8vh;
   background-color: rgb(37, 37, 37);
-  margin: 7px;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding: 5px;
   border-radius: 10px;
   display: flex;
-}
-
-.container-titulo .titulo-curso {
-  align-self: center;
+  justify-content: center;
 }
 
 /* CONTAINER DE CURSOS */
+
+.grid-container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(328px, 1fr));
+  gap: 1rem;
+}
 
 .container-2 {
   display: grid;
@@ -94,12 +130,12 @@ h1 {
   padding-block: 3rem;
 }
 
-.cards-container{
+/* .cards-container{
   display: grid;
   row-gap: 3.5rem;
   margin-bottom: 1.25rem;
   margin-top: 1.25rem;
-}
+} */
 
 .card-article{
   position: relative;
@@ -141,6 +177,48 @@ h1 {
   margin-bottom: .75 rem;
 }
 
+.icon-curso img {
+  margin-right: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.container-info-curso {
+  width: 100%;
+  display: flex;
+}
+
+
+
+/* COLORES ESPECIALIDAD */
+#esp-im{
+  color: var(--esp-im-color);
+}
+
+#esp-gl{
+  color: var(--esp-gl-color);
+}
+
+#esp-elec{
+  color: var(--esp-elec-color);
+}
+
+#esp-aba{
+  color: var(--esp-aba-color);
+}
+
+#transversal{
+  color: var(--transversal-color);
+}
+
+#obm{
+  color: var(--obm-color);
+}
+
+#obd{
+  color: var(--obd-color);
+}
+
 /* Animaciones en el nombre de las cartas */
 /* Es CSS puro, no debería haber problemas en intranet */
 
@@ -148,6 +226,7 @@ h1 {
   animation: show-data 1s forwards;
   opacity: 1;
   transition: opacity .3s;
+  z-index: 100;
 }
 
 .card-article:hover {
