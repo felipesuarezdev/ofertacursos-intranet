@@ -27,7 +27,7 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
-  background-image: url(img/background.png);
+  /* background-image: url(img/background.png); */
   color: rgb(240, 240, 240);
   /* background-color: #1D1842; */
   /* color: var(--text-color); */
@@ -37,6 +37,21 @@ body {
   width: 100vw;
   font-weight: 400;
   font-style: normal;
+  background: linear-gradient(90deg, #0e508b, #26a4a9);
+  background-size: 300% 300%;
+  animation: color 12s ease-in-out infinite;
+}
+
+@keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 
 footer {
